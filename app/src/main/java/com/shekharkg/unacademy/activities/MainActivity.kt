@@ -15,14 +15,14 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val urls = Array<String>(5) {
+        val urls = Array(5) {
             when (it) {
-                0 -> ""
-                1 -> ""
-                2 -> ""
-                3 -> ""
-                4 -> ""
-                else -> ""
+                0 -> "https://homepages.cae.wisc.edu/~ece533/images/airplane.png"
+                1 -> "https://homepages.cae.wisc.edu/~ece533/images/arctichare.png"
+                2 -> "https://homepages.cae.wisc.edu/~ece533/images/baboon.png"
+                3 -> "https://homepages.cae.wisc.edu/~ece533/images/barbara.png"
+                4 -> "https://homepages.cae.wisc.edu/~ece533/images/boat.png"
+                else -> "https://homepages.cae.wisc.edu/~ece533/images/cat.png"
             }
         }
 

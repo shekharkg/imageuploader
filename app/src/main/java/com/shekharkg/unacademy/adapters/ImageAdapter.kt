@@ -15,7 +15,7 @@ class ImageAdapter(context: Context, var urls: Array<String>) : RecyclerView.Ada
     private var errorDrawable = context.resources.getDrawable(R.drawable.ic_error_black_24dp, null)
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): ImageViewHolder {
-        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_image_view, viewGroup)
+        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_image_view, viewGroup, false)
         return ImageViewHolder(view, errorDrawable)
     }
 
