@@ -14,11 +14,6 @@ import java.net.URL
  */
 class ImageLoader(private val callback: FetchBitmapCallback?) : AsyncTask<String, Void, Bitmap>() {
 
-    override fun onPreExecute() {
-        super.onPreExecute()
-
-    }
-
     override fun doInBackground(vararg urls: String): Bitmap? {
         if (urls[0].isNotEmpty()) {
             val url = urls[0]
