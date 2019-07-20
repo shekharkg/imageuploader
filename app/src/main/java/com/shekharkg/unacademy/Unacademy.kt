@@ -9,12 +9,13 @@ import com.shekharkg.unacademy.cache.ImageCache
  */
 class Unacademy : Application() {
 
-    private val cacheMaxSize = 50
+    private val maxMemory = (Runtime.getRuntime().maxMemory() / 1024).toInt()
+    private val cacheSize = maxMemory / 8
 
     override fun onCreate() {
         super.onCreate()
 
-        ImageCache.getCache(cacheMaxSize)
+        ImageCache.getCache(cacheSize)
 
     }
 

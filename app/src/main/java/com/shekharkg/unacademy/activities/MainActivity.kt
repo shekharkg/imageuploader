@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val urls = Array(5) {
+        val urls = Array(10) {
             when (it) {
                 0 -> "https://homepages.cae.wisc.edu/~ece533/images/airplane.png"
                 1 -> "https://homepages.cae.wisc.edu/~ece533/images/arctichare.png"

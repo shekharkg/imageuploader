@@ -16,13 +16,17 @@ class ImageViewHolder(itemView: View, var errorDrawable: Drawable) : RecyclerVie
 
     override fun onBitmapFetched(bitmap: Bitmap) {
         itemView.imageView.setImageBitmap(bitmap)
+        itemView.progressBar.visibility = View.GONE
     }
 
     override fun onBitmapFetchFailed(error: String) {
         itemView.imageView.setImageDrawable(errorDrawable)
+        itemView.progressBar.visibility = View.GONE
     }
 
     fun onBind(url: String?) {
+        itemView.imageView.setImageDrawable(null)
+        itemView.progressBar.visibility = View.VISIBLE
         ImageLoader(this).execute(url)
     }
 
