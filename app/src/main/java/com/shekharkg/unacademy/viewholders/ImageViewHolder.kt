@@ -2,6 +2,7 @@ package com.shekharkg.unacademy.viewholders
 
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import android.os.AsyncTask
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.shekharkg.imagecache.callback.FetchBitmapCallback
@@ -31,7 +32,7 @@ class ImageViewHolder(itemView: View, var errorDrawable: Drawable) : RecyclerVie
     fun onBind(url: String?) {
         itemView.imageView.setImageDrawable(null)
         itemView.progressBar.visibility = View.VISIBLE
-        ImageLoader(this, adapterPosition).execute(url)
+        ImageLoader(this, adapterPosition).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url)
     }
 
 
