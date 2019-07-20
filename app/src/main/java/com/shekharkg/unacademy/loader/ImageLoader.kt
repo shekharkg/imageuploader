@@ -7,7 +7,6 @@ import com.shekharkg.unacademy.cache.ImageCache
 import com.shekharkg.unacademy.callbacks.FetchBitmapCallback
 
 import java.io.IOException
-import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
 
