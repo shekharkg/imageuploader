@@ -7,8 +7,8 @@ import android.graphics.Bitmap
  */
 interface FetchBitmapCallback {
 
-    fun onBitmapFetched(bitmap: Bitmap)
+    fun onBitmapFetched(bitmap: Bitmap, position: Int?)
 
-    fun onBitmapFetchFailed(error: String)
+    fun onBitmapFetchFailed(error: String, position: Int?)
 
 }

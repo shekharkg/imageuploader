@@ -51,5 +51,9 @@ private constructor(maxSize: Int) : LruCache<String, Bitmap>(maxSize), Component
         fun getBitmap(key: String): Bitmap? {
             return cache?.get(key)
         }
+
+        fun clearCache() {
+            cache?.evictAll()
+        }
     }
 }

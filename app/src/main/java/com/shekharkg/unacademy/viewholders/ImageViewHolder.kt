@@ -14,20 +14,24 @@ import kotlinx.android.synthetic.main.item_image_view.view.*
 class ImageViewHolder(itemView: View, var errorDrawable: Drawable) : RecyclerView.ViewHolder(itemView),
     FetchBitmapCallback {
 
-    override fun onBitmapFetched(bitmap: Bitmap) {
-        itemView.imageView.setImageBitmap(bitmap)
-        itemView.progressBar.visibility = View.GONE
+    override fun onBitmapFetched(bitmap: Bitmap, position: Int?) {
+        if (position == -1 || position == adapterPosition) {
+            itemView.imageView.setImageBitmap(bitmap)
+            itemView.progressBar.visibility = View.GONE
+        }
     }
 
-    override fun onBitmapFetchFailed(error: String) {
-        itemView.imageView.setImageDrawable(errorDrawable)
-        itemView.progressBar.visibility = View.GONE
+    override fun onBitmapFetchFailed(error: String, position: Int?) {
+        if (position == -1 || position == adapterPosition) {
+            itemView.imageView.setImageDrawable(errorDrawable)
+            itemView.progressBar.visibility = View.GONE
+        }
     }
 
     fun onBind(url: String?) {
         itemView.imageView.setImageDrawable(null)
         itemView.progressBar.visibility = View.VISIBLE
-        ImageLoader(this).execute(url)
+        ImageLoader(this, adapterPosition).execute(url)
     }
 
 

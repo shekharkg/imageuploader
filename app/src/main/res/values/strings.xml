@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">unacademy</string>
+    <string name="clear_cache">Clear Cache</string>
 </resources>

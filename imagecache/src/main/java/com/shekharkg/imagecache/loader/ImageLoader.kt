@@ -12,7 +12,7 @@ import java.net.URL
 /**
  * Created by shekhar on 2019-07-20.
  */
-class ImageLoader(private val callback: FetchBitmapCallback?) : AsyncTask<String, Void, Bitmap>() {
+class ImageLoader(private val callback: FetchBitmapCallback?, private var position: Int = -1) : AsyncTask<String, Void, Bitmap>() {
 
     override fun doInBackground(vararg urls: String): Bitmap? {
         if (urls[0].isNotEmpty()) {
@@ -37,9 +37,9 @@ class ImageLoader(private val callback: FetchBitmapCallback?) : AsyncTask<String
 
         if (callback != null) {
             if (bitmap == null)
-                callback.onBitmapFetchFailed("Unable to fetch bitmap...")
+                callback.onBitmapFetchFailed("Unable to fetch bitmap...", position)
             else
-                callback.onBitmapFetched(bitmap)
+                callback.onBitmapFetched(bitmap, position)
         }
     }
 
