@@ -1,11 +1,10 @@
-package com.shekharkg.unacademy.loader
+package com.shekharkg.imagecache.loader
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.AsyncTask
-import com.shekharkg.unacademy.cache.ImageCache
-import com.shekharkg.unacademy.callbacks.FetchBitmapCallback
-
+import com.shekharkg.imagecache.cache.ImageCache
+import com.shekharkg.imagecache.callback.FetchBitmapCallback
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
@@ -15,30 +14,24 @@ import java.net.URL
  */
 class ImageLoader(private val callback: FetchBitmapCallback?) : AsyncTask<String, Void, Bitmap>() {
 
-    private var imageCache: ImageCache? = null
-
     override fun onPreExecute() {
         super.onPreExecute()
 
-        imageCache = ImageCache.getCache(10)
     }
 
     override fun doInBackground(vararg urls: String): Bitmap? {
         if (urls[0].isNotEmpty()) {
             val url = urls[0]
 
-            if (imageCache != null) {
-                var bitmap: Bitmap? = imageCache!!.get(url)
+            var bitmap: Bitmap? = ImageCache.getBitmap(url)
 
-                if (bitmap == null) {
-                    bitmap = getBitmapFromURL(url)
+            if (bitmap == null) {
+                bitmap = getBitmapFromURL(url)
 
-                    if (bitmap != null)
-                        imageCache!!.put(url, bitmap)
-                }
-
-                return bitmap
+                if (bitmap != null)
+                    ImageCache.putBitmap(url, bitmap)
             }
+            return bitmap
         }
         return null
     }

@@ -4,8 +4,8 @@ import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import com.shekharkg.unacademy.callbacks.FetchBitmapCallback
-import com.shekharkg.unacademy.loader.ImageLoader
+import com.shekharkg.imagecache.callback.FetchBitmapCallback
+import com.shekharkg.imagecache.loader.ImageLoader
 import kotlinx.android.synthetic.main.item_image_view.view.*
 
 /**

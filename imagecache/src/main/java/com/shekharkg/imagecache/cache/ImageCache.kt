@@ -1,4 +1,4 @@
-package com.shekharkg.unacademy.cache
+package com.shekharkg.imagecache.cache
 
 import android.content.ComponentCallbacks2
 import android.content.res.Configuration
@@ -38,11 +38,18 @@ private constructor(maxSize: Int) : LruCache<String, Bitmap>(maxSize), Component
 
         private var cache: ImageCache? = null
 
-        fun getCache(maxSize: Int): ImageCache {
+        fun initialize(maxSize: Int) {
             if (cache == null)
-                cache = ImageCache(maxSize)
+                cache =
+                    ImageCache(maxSize)
+        }
 
-            return cache!!
+        fun putBitmap(key: String, bitmap: Bitmap) {
+            cache?.put(key, bitmap)
+        }
+
+        fun getBitmap(key: String): Bitmap? {
+            return cache?.get(key)
         }
     }
 }

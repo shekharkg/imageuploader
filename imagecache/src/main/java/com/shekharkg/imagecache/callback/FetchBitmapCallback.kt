@@ -1,10 +1,9 @@
-package com.shekharkg.unacademy.callbacks
+package com.shekharkg.imagecache.callback
 
 import android.graphics.Bitmap
 
 /**
  * Created by shekhar on 2019-07-20.
- * Tricog Health Services Pvt Ltd © 2019 | All rights reserved
  */
 interface FetchBitmapCallback {
 
